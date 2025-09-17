@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-RECYCLE </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700&family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles5.css">
+</head>
+<body>
+    <!-- Modal for messages -->
+    <div id="messageModal" class="modal flex">
+        <div class="modal-content">
+            <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
+            <p id="modalMessage" class="text-lg text-gray-700"></p>
+            <button onclick="closeModal()" class="mt-6 px-6 py-2 bg-blue-600 text-white rounded-full font-bold shadow-md hover:bg-blue-700 transition duration-300">OK</button>
+        </div>
+    </div>
+    
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo-and-name">
+                <img src="logo.png" alt="E-RECYCLE Logo" class="header-logo-image-full">
+            </a>
+            <nav class="nav">
+                <a href="index4.html" class="nav-link">Home</a>
+                <a href="index6.html" class="nav-link"> Submit</a>
+                <a href="index7.html" class="nav-link"> Submited E-waste</a>
+            </nav>
+            <div class="auth-buttons">
+                <!-- Profile Icon with Dropdown -->
+                <div class="profile-container relative">
+                    <img id="profile-icon" src="https://placehold.co/40x40/ccc/fff?text=👤" alt="Profile Icon" class="profile-icon">
+                    <div id="profile-dropdown" class="profile-dropdown">
+                        <a href="#" class="profile-dropdown-link" onclick="location.href='index8.html'">Profile</a>
+                        <a href="#" class="profile-dropdown-link" onclick="location.href='index2.html'">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-container">
+        <h1 class="article-title">
+            From E-Waste to Education
+        </h1>
+        <div class="article-meta">
+            By <span style="font-weight: bold;">E-Recycle team</span>
+            <span style="color: #ffffff;">|</span>
+            Published: September 13, 2025
+        </div>
+
+        <div class="article-image-container">
+            <img src="kids.jpg" alt="Community E-Waste Drive" class="article-image">
+        </div>
+
+        <div class="article-body">
+            <p>
+                Davao City has announced the launch of its groundbreaking "E-Waste to Empowerment" project, a city-wide initiative aimed at tackling the growing issue of electronic waste while simultaneously providing much-needed technology to local schools. The program, which will be implemented in partnership with several local businesses and environmental organizations, encourages residents to donate their old, unused electronics.
+            </p>
+            <p>
+                The project will establish centralized collection points across the city where citizens can drop off a wide range of devices, including old computers, laptops, cell phones, and printers. Trained technicians will then assess the donated items. Those that are still functional will be refurbished and repurposed for use in schools and community centers. Devices that are beyond repair will be safely dismantled and recycled, ensuring that hazardous materials do not end up in landfills.
+            </p>
+            <p>
+                "This is a win-win situation for our city," said Mayor Sara Duterte during a press conference on Friday. "We are not only addressing a critical environmental problem but also empowering our youth with the tools they need to succeed in the digital age. Every old phone or computer can become a new opportunity for a student."
+            </p>
+            <p>
+                The initiative is a response to the rapid increase in electronic consumption and disposal, which poses a significant threat to the local environment due to toxic components like lead, mercury, and cadmium. By creating a sustainable loop of reuse and recycling, the project hopes to set a new standard for urban environmental management. The first batch of refurbished computers is expected to be delivered to Davao City High School next month.
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            &copy; 2025 E-RECYCLE. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Modal functions
+        const messageModal = document.getElementById('messageModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+
+        function showMessage(title, message) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            messageModal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            messageModal.style.display = 'none';
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target === messageModal) {
+                closeModal();
+            }
+        });
+        
+        // Profile Dropdown functionality
+        const profileIcon = document.getElementById('profile-icon');
+        const profileDropdown = document.getElementById('profile-dropdown');
+
+        // Toggle the dropdown visibility
+        profileIcon.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevents the window click listener from closing it immediately
+            profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close the dropdown when clicking anywhere else on the window
+        window.addEventListener('click', (event) => {
+            if (!profileIcon.contains(event.target) && !profileDropdown.contains(event.target)) {
+                profileDropdown.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

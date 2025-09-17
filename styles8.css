@@ -1,0 +1,440 @@
+/* CSS Variables for a consistent color palette */
+:root {
+  --primary-color: #2e8b57; /* Sea Green */
+  --secondary-color: #f0fdf4; /* Light Green */
+  --card-bg: #ffffff; /* Corrected to a valid hex code for a white background */
+  --text-dark: #333333;
+  --text-light: #666666;
+  --border-color: #e5e7eb;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+  --hover-bg: #f5f5f5;
+  --hover-border: #dcdcdc;
+  --active-bg: #2e8b57;
+  --active-text: #ffffff;
+  --working-bg: #d4edda;
+  --working-text: #155724;
+  --broken-bg: #f8d7da;
+  --broken-text: #721c24;
+  --picked-up-bg: #cce5ff;
+  --picked-up-text: #004085;
+  --dropped-bg: #d1ecf1;
+  --dropped-text: #0c5460;
+  --pending-bg: #fff3cd;
+  --pending-text: #856404;
+}
+
+/* Base styles from user's provided CSS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--secondary-color);
+  padding-top: 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* --- Header Styles --- */
+.header {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px var(--shadow-light);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform var(--transition-speed) ease-in-out;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  min-height: 70px;
+}
+
+.logo-and-name {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.header-logo-image {
+  width: 69px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.header-logo-image-full {
+  height: 100px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  margin-right: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.auth-buttons button {
+  padding: 0.5rem 1.25rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.auth-buttons button:hover {
+  background-color: #236642;
+  transform: translateY(-2px);
+}
+
+.profile-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+.profile-button:hover {
+  color: var(--primary-color);
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform var(--transition-speed);
+  border: 2px solid transparent;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px var(--shadow-light);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 150px;
+  z-index: 1000;
+}
+
+.profile-dropdown-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: background-color var(--transition-speed);
+}
+
+.profile-dropdown-link:hover {
+  background-color: var(--secondary-color);
+}
+
+/* New CSS for the profile card to match the style */
+.main-content {
+  padding: 2.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.profile-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.profile-header {
+  margin-bottom: 2rem;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  margin: 0 auto 1rem;
+}
+
+.profile-name {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.profile-motto {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+.profile-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.info-box {
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color); /* Used var instead of hardcoded color */
+}
+
+.info-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.info-text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-dark);
+  word-wrap: break-word;
+}
+
+.edit-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color var(--transition-speed);
+}
+
+.edit-button:hover {
+  background-color: #236642;
+}
+
+/* Modal styles from user's provided CSS */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding-top: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: modal-open 0.3s ease-out;
+}
+
+@keyframes modal-open {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-title {
+  margin-top: 0;
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.modal-input,
+.modal-file-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.modal-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.save-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.cancel-btn {
+  background-color: var(--hover-bg);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+}
+
+.modal-ok-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  display: block;
+  margin-top: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-message {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .nav {
+    justify-content: center;
+    margin-right: 0;
+  }
+  .header-right {
+    width: 100%;
+  }
+  .search-bar {
+    width: 100%;
+  }
+  .item-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .item-main {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .item-status {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

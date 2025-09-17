@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Recycle</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="E-Recycle Logo" class="logo-img">
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-secondary" onclick="location.href='index3.html'">Sign Up</button>
+                <button class="btn btn-secondary" onclick="location.href='index2.html'">Log in</button>
+                <button class="btn btn-primary" id="offerBtn">Offer here</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Simplify Sustainable Computing for Education</h1>
+                    <p class="hero-description">
+                        Empower public schools with secure, efficient, and environmentally responsible computer recycling solutions.
+                        At E-Recycle, we transform electronic waste into educational tools—minimizing environmental impact while
+                        maximizing student access to technology.
+                    </p>
+                </div>
+                <div class="hero-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">About Us</h2>
+                <p class="about-text">
+                    At E-Recycle, we are driven by a simple mission: to give unused computer components a second life and
+                    provide students with the technology they need to succeed. By recycling, reassembling, and donating
+                    computers to public schools, we bridge the gap between sustainability and education.
+                </p>
+                <p class="about-text">
+                    We believe every piece of technology has value—not just for the environment, but for the future of learning.
+                    Instead of letting electronic waste harm our planet, we transform it into opportunities for students,
+                    equipping classrooms with the tools to explore, create, and grow.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help Section -->
+    <section class="help-section">
+        <div class="container">
+            <div class="help-content">
+                <div class="help-image">
+                    <img src="https://c.animaapp.com/mf651zf3gLIK1K/img/469176472-596466446084105-105203741444076765-n-2.png" alt="School computers" class="help-img">
+                </div>
+                <div class="help-text">
+                    <h2 class="section-title green">How We Help Schools</h2>
+                    <div class="help-item">
+                        <h3>Component Collection & Assembly</h3>
+                        <p>We gather unused and surplus computer parts, validate their functionality, and assemble them into fully operational systems.</p>
+                    </div>
+                    <div class="help-item">
+                        <h3>Donations to Public Schools</h3>
+                        <p>Each refurbished computer is donated to a public school in need—supporting underserved students and equitable access to technology.</p>
+                    </div>
+                    <div class="help-item">
+                        <h3>Verified Process & Support</h3>
+                        <p>Our process is transparent, documented, and backed by reliable logistics and expert support at every step.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://c.animaapp.com/mf651zf3gLIK1K/img/64489946-0b92-4044-bd36-875da3de2b72-2.png" alt="E-Recycle Logo" class="footer-logo-img">
+                </div>
+                <div class="footer-info">
+                    <div class="contact-info">
+                        <h3>Contact Details:</h3>
+                        <p>Email: cvillacampa_240000001082@uic.edu.ph</p>
+                        <p>Mobile Number: 6396325414412</p>
+                    </div>
+                    <div class="location-info">
+                        <h3>Located at:</h3>
+                        <p>Bangkerohan Public Market</p>
+                    </div>
+                </div>
+                <div class="social-media">
+                    <div class="social-item">
+                        <img src="https://c.animaapp.com/mf651zf3gLIK1K/img/416-4169142-facebook-logo-facebook-white-icon-png-2018-removebg-.png" alt="Facebook" class="social-icon">
+                        <span>ERRECYCLE</span>
+                    </div>
+                    <div class="social-item">
+                        <img src="https://c.animaapp.com/mf651zf3gLIK1K/img/instagram-white-icon-removebg-preview-1.png" alt="Instagram" class="social-icon">
+                        <span>ee_recycle@official</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popup Modal -->
+    <div class="popup" id="offerPopup">
+        <div class="popup-content">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <button class="popup-btn" id="pickupBtn">Pick up?</button>
+            <button class="popup-btn" id="dropoffBtn">Drop off?</button>
+        </div>
+    </div>
+
+    <script>
+        // Get elements
+        const popup = document.getElementById("offerPopup");
+        const offerBtn = document.getElementById("offerBtn");
+        const closeBtn = document.getElementById("closePopup");
+        const pickupBtn = document.getElementById("pickupBtn");
+        const dropoffBtn = document.getElementById("dropoffBtn");
+
+        // Show popup
+        offerBtn.addEventListener("click", () => {
+            popup.style.display = "flex";
+        });
+
+        // Close popup
+        closeBtn.addEventListener("click", () => {
+            popup.style.display = "none";
+        });
+
+        // Close when clicking outside
+        window.addEventListener("click", (e) => {
+            if (e.target === popup) {
+                popup.style.display = "none";
+            }
+        });
+
+        // Handle popup button clicks
+        pickupBtn.addEventListener('click', () => {
+            window.location.href = 'index2.html';
+        });
+
+        dropoffBtn.addEventListener('click', () => {
+            window.location.href = 'index2.html';
+        });
+    </script>
+</body>
+</html>

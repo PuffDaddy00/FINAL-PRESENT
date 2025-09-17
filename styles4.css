@@ -1,0 +1,358 @@
+:root {
+  --primary-color: #2e8b57;
+  --secondary-color: #d5d5d3;
+  --text-dark: #333;
+  --text-light: #666;
+  --card-bg: #fff;
+  --border-color: #e0e0e0;
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--secondary-color);
+  overflow-x: hidden;
+  padding-top: 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Header Styles --- */
+.header {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px var(--shadow-light);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform var(--transition-speed) ease-in-out;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  min-height: 70px;
+}
+
+.logo-and-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.header-logo-image-full {
+  height: 70px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  margin-right: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.auth-buttons {
+  position: relative;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+  border: 2px solid transparent;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 200px;
+  overflow: hidden;
+}
+
+.profile-dropdown-link {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: background-color var(--transition-speed);
+}
+
+.profile-dropdown-link:hover {
+  background-color: var(--secondary-color);
+}
+
+/* --- Main Content Styles --- */
+.content {
+  padding: 2.5rem 0;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-light);
+  padding: 2rem;
+  transition: transform var(--transition-speed) ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.main-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.main-content-wrapper > * {
+  flex: 1 1 100%;
+}
+
+.video-card-wrapper {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.video-card-wrapper > .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.youtube-text-block {
+  flex: 1 1 calc(50% - 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.youtube-text-block .text-block {
+  flex-grow: 1;
+}
+
+.text-block h2 {
+  font-family: 'Big Shoulders Display', sans-serif;
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.text-block p {
+  color: var(--text-light);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.image-container, .youtube-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px var(--shadow-light);
+}
+
+.content-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.youtube-video {
+  width: 100%;
+  height: 250px;
+}
+
+/* --- Slideshow Styles --- */
+.slideshow-container {
+    /* New styles to lock the box size */
+    height: 500px; 
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+}
+
+.slideshow-container a {
+  text-decoration: none;
+}
+
+.mySlides {
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  animation: fadeEffect 1.5s ease-in-out;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+}
+
+.slideshow-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.slideshow-text, .slideshow-image {
+  width: 50%;
+}
+
+.slideshow-text .text-block {
+  padding: 0;
+  background-color: transparent;
+}
+
+.slideshow-text .text-block h2 {
+  font-size: 2.5rem;
+}
+
+.slideshow-image img {
+    /* Ensures the image fills the fixed-size box without distortion */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.dot-container {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  cursor: pointer;
+}
+
+.active, .dot:hover {
+  background-color: var(--primary-color);
+}
+
+/* Modal for messages */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+  .header .container {
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+  }
+
+  .nav {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1rem 0 0;
+  }
+
+  .main-content-wrapper {
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+
+  .video-card-wrapper {
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+
+  .youtube-text-block {
+      flex: 1 1 100%;
+  }
+
+  .slideshow-content {
+      flex-direction: column;
+  }
+
+  .slideshow-text, .slideshow-image {
+      width: 100%;
+  }
+
+  .mySlides .text-block h2 {
+      font-size: 2rem;
+  }
+}

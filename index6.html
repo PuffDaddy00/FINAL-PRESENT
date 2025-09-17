@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-RECYCLE Submit E-Waste</title>
+    <link rel="stylesheet" href="styles6.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700&family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+    <!-- Modal for messages -->
+    <div id="messageModal" class="modal flex">
+        <div class="modal-content">
+            <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
+            <p id="modalMessage" class="text-lg text-gray-700"></p>
+            <button onclick="closeModal()" class="mt-6 px-6 py-2 bg-blue-600 text-white rounded-full font-bold shadow-md hover:bg-blue-700 transition duration-300">OK</button>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo-and-name">
+                <img src="logo.png" alt="E-RECYCLE Logo" class="header-logo-image-full">
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-link"onclick="location.href='index4.html'">Home</a>
+                <a href="#" class="nav-link"onclick="location.href='index6.html'">Submit</a>
+                <a href="#" class="nav-link"onclick="location.href='index7.html'">Submited E-waste</a>
+            </nav>
+            <div class="auth-buttons">
+                <!-- Profile Icon with Dropdown -->
+                <div class="profile-container relative">
+                    <img id="profile-icon" src="https://placehold.co/40x40/ccc/fff?text=👤" alt="Profile Icon" class="profile-icon">
+                    <div id="profile-dropdown" class="profile-dropdown">
+                        <a href="#" class="profile-dropdown-link" onclick="location.href='index8.html'">Profile</a>
+                        <a href="#" class="profile-dropdown-link" onclick="location.href='index2.html'">Logout</a>
+        </div>
+    </header>
+
+    <main class="content">
+        <div class="container">
+            <h1 class="welcome-message">Welcome, Douglas</h1>
+            <p class="tagline">You helped recycle 3 devices this month. Great job keeping tech waste in landfills!</p>
+
+            <div class="submission-card card">
+                <h2>Submit your E-Waste</h2>
+
+                <form class="e-waste-form">
+                    <div class="form-group">
+                        <label for="eWasteType">E-waste type</label>
+                        <select id="eWasteType" name="eWasteType">
+                            <option value="">Select E-waste Type</option>
+                            <option value="system_unit">System Unit</option>
+                            <option value="pc_components">PC Components</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="condition">Condition</label>
+                        <select id="condition" name="condition">
+                            <option value="">Select Condition</option>
+                            <option value="working">Working</option>
+                            <option value="not_working">Not Working</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceType">Preferred Service</label>
+                        <select id="serviceType" name="serviceType">
+                            <option value="">Select Service Type</option>
+                            <option value="pickup">Pickup</option>
+                            <option value="dropoff">Drop-off</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="pickupTimeGroup">
+                        <label for="pickupTime">Preferred pickup time</label>
+                        <input type="text" id="pickupTime" name="pickupTime" placeholder="e.g. tomorrow, any time">
+                    </div>
+
+                    <div class="form-group" id="pickupAddressGroup">
+                        <label for="pickupAddress">Pickup address</label>
+                        <input type="text" id="pickupAddress" name="pickupAddress" placeholder="e.g. Malabon">
+                    </div>
+                    
+                    <div class="form-group" id="dropoffLocationGroup">
+                        <label for="dropoffLocation">Preferred drop-off location</label>
+                        <select id="dropoffLocation" name="dropoffLocation">
+                            <option value="">Select Drop-off Location</option>
+                            <option value="location_a">Location A</option>
+                            <option value="location_b">Location B</option>
+                            <option value="location_c">Location C</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-button">Schedule pickup / drop-off</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script>
+                // Modal functions
+                const messageModal = document.getElementById('messageModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+
+        function showMessage(title, message) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            messageModal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            messageModal.style.display = 'none';
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target === messageModal) {
+                closeModal();
+            }
+        });
+        
+        // Profile Dropdown functionality
+        const profileIcon = document.getElementById('profile-icon');
+        const profileDropdown = document.getElementById('profile-dropdown');
+
+        // Toggle the dropdown visibility
+        profileIcon.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevents the window click listener from closing it immediately
+            profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close the dropdown when clicking anywhere else on the window
+        window.addEventListener('click', (event) => {
+            if (!profileIcon.contains(event.target) && !profileDropdown.contains(event.target)) {
+                profileDropdown.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
